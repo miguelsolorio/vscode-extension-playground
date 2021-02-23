@@ -40,10 +40,10 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	// tree view
-	const nodeDependenciesProvider = new NodeDependenciesProvider(vscode.workspace.rootPath);
-	vscode.window.registerTreeDataProvider('nodeDependencies', nodeDependenciesProvider);
+	const fluentSampleViewProvider = new NodeDependenciesProvider(vscode.workspace.rootPath);
+	vscode.window.registerTreeDataProvider('fluentSampleView', fluentSampleViewProvider);
 
-	vscode.window.createTreeView('nodeDependencies', {
+	vscode.window.createTreeView('fluentSampleView', {
 		treeDataProvider: new NodeDependenciesProvider(vscode.workspace.rootPath)
 	});
 
