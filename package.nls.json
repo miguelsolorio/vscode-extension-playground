@@ -1,0 +1,5 @@
+{
+  "displayName": "Fluent",
+  "description": "Fluent Sample",
+  "empty": "This is a sample empty view that triggers an action \n [Hello World](command:extension.helloWorld)"
+}

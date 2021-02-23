@@ -29,11 +29,17 @@
 		"views": {
 			"fluent": [
 				{
-					"id": "sample-view",
+					"id": "fluent-sample-view",
 					"name": "Sample View"
 				}
 			]
 		},
+		"viewsWelcome": [
+			{
+				"view": "fluent-sample-view",
+				"contents": "%empty%"
+			}
+		],
 		"commands": [
 			{
 				"icon": "$(fluent-logo)",
