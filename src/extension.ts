@@ -1,6 +1,8 @@
 'use strict';
 
 import * as vscode from 'vscode';
+import { CodelensProvider } from './CodelensProvider';
+import { NodeDependenciesProvider } from './treeView';
 
 let myStatusBarItem: vscode.StatusBarItem;
 
@@ -19,5 +21,30 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.showInformationMessage(`👋 Hello World!`);
 	});
 	context.subscriptions.push(disposable);
+
+	// codelens
+	const codelensProvider = new CodelensProvider();
+
+	vscode.languages.registerCodeLensProvider("*", codelensProvider);
+
+	vscode.commands.registerCommand("codelens-sample.enableCodeLens", () => {
+		vscode.workspace.getConfiguration("codelens-sample").update("enableCodeLens", true, true);
+	});
+
+	vscode.commands.registerCommand("codelens-sample.disableCodeLens", () => {
+		vscode.workspace.getConfiguration("codelens-sample").update("enableCodeLens", false, true);
+	});
+
+	vscode.commands.registerCommand("codelens-sample.codelensAction", (args: any) => {
+		vscode.window.showInformationMessage(`CodeLens action clicked with args=${args}`);
+	});
+
+	// tree view
+	const nodeDependenciesProvider = new NodeDependenciesProvider(vscode.workspace.rootPath);
+	vscode.window.registerTreeDataProvider('nodeDependencies', nodeDependenciesProvider);
+
+	vscode.window.createTreeView('nodeDependencies', {
+		treeDataProvider: new NodeDependenciesProvider(vscode.workspace.rootPath)
+	});
 
 }

@@ -29,14 +29,14 @@
 		"views": {
 			"fluent": [
 				{
-					"id": "fluent-sample-view",
+					"id": "nodeDependencies",
 					"name": "Sample View"
 				}
 			]
 		},
 		"viewsWelcome": [
 			{
-				"view": "fluent-sample-view",
+				"view": "nodeDependencies",
 				"contents": "%empty%"
 			}
 		],
