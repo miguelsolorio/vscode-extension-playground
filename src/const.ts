@@ -1,1 +1,1 @@
-export const icon = 'fluent-logo';
+export const icon = 'rocket';
