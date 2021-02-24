@@ -3,6 +3,9 @@
 import * as vscode from 'vscode';
 import { CodelensProvider } from './CodelensProvider';
 import { NodeDependenciesProvider } from './treeView';
+import { showQuickPick, showInputBox } from './quick-pick/basicInput';
+import { multiStepInput } from './quick-pick/multiStepInput';
+import { quickOpen } from './quick-pick/quickOpen';
 
 let myStatusBarItem: vscode.StatusBarItem;
 
@@ -12,7 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
 	const myCommandId = 'extension.helloWorld';
 	myStatusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 1000);
 	myStatusBarItem.command = myCommandId;
-	myStatusBarItem.text = `$(fluent-logo) Hello World`;
+	myStatusBarItem.text = `$(fluent-logo)`;
 	myStatusBarItem.show();
 	context.subscriptions.push(myStatusBarItem);
 
@@ -47,4 +50,24 @@ export function activate(context: vscode.ExtensionContext) {
 		treeDataProvider: new NodeDependenciesProvider(vscode.workspace.rootPath)
 	});
 
+
+	// quick open
+	context.subscriptions.push(vscode.commands.registerCommand('extension.quickInput', async () => {
+		const options: { [key: string]: (context: vscode.ExtensionContext) => Promise<void> } = {
+			showQuickPick,
+			showInputBox,
+			multiStepInput,
+			quickOpen,
+		};
+		const quickPick = vscode.window.createQuickPick();
+		quickPick.items = Object.keys(options).map(label => ({ label }));
+		quickPick.onDidChangeSelection(selection => {
+			if (selection[0]) {
+				options[selection[0].label](context)
+					.catch(console.error);
+			}
+		});
+		quickPick.onDidHide(() => quickPick.dispose());
+		quickPick.show();
+	}));
 }

@@ -46,6 +46,12 @@
 				"command": "extension.helloWorld",
 				"category": "Fluent",
 				"title": "Hello World"
+			},
+			{
+				"icon": "$(fluent-logo)",
+				"command": "extension.quickInput",
+				"category": "Fluent",
+				"title": "Quick Input Samples"
 			}
 		],
 		"menus": {
