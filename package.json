@@ -22,7 +22,7 @@
 				{
 					"id": "fluent",
 					"title": "Fluent",
-					"icon": "$(fluent-logo)"
+					"icon": "$(rocket)"
 				}
 			]
 		},
@@ -42,13 +42,13 @@
 		],
 		"commands": [
 			{
-				"icon": "$(fluent-logo)",
+				"icon": "$(rocket)",
 				"command": "extension.helloWorld",
 				"category": "Fluent",
 				"title": "Hello World"
 			},
 			{
-				"icon": "$(fluent-logo)",
+				"icon": "$(rocket)",
 				"command": "extension.quickInput",
 				"category": "Fluent",
 				"title": "Quick Input Samples"
