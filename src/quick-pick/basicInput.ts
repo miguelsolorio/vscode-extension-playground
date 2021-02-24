@@ -4,6 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import { window } from 'vscode';
+import { icon } from '../const';
 
 /**
  * Shows a pick list using window.showQuickPick().
@@ -11,7 +12,7 @@ import { window } from 'vscode';
 export async function showQuickPick() {
 	let i = 0;
 	const result = await window.showQuickPick(
-		['$(fluent-logo) uno', '$(fluent-logo) dos', '$(fluent-logo) tres'], {
+		[`$(${icon}) uno`, '$(${icon}) dos', '$(${icon}) tres'], {
 		placeHolder: 'one, two, or three',
 		onDidSelectItem: item => window.showInformationMessage(`Focus ${++i}: ${item}`)
 	});

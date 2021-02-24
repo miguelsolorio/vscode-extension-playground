@@ -6,6 +6,7 @@ import { NodeDependenciesProvider } from './treeView';
 import { showQuickPick, showInputBox } from './quick-pick/basicInput';
 import { multiStepInput } from './quick-pick/multiStepInput';
 import { quickOpen } from './quick-pick/quickOpen';
+import { icon } from './const';
 
 let myStatusBarItem: vscode.StatusBarItem;
 
@@ -15,7 +16,7 @@ export function activate(context: vscode.ExtensionContext) {
 	const myCommandId = 'extension.helloWorld';
 	myStatusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 1000);
 	myStatusBarItem.command = myCommandId;
-	myStatusBarItem.text = `$(fluent-logo)`;
+	myStatusBarItem.text = `$(${icon})`;
 	myStatusBarItem.show();
 	context.subscriptions.push(myStatusBarItem);
 

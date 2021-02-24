@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import { icon } from './const';
 
 /**
  * CodelensProvider
@@ -42,7 +43,7 @@ export class CodelensProvider implements vscode.CodeLensProvider {
     public resolveCodeLens(codeLens: vscode.CodeLens, token: vscode.CancellationToken) {
         if (vscode.workspace.getConfiguration("codelens-sample").get("enableCodeLens", true)) {
             codeLens.command = {
-                title: `$(fluent-logo) Fluent Codelens`,
+                title: `$(${icon}) Fluent Codelens`,
                 tooltip: "Fluent Codelens",
                 command: "extension.helloWorld",
                 arguments: ["Argument 1", false]
