@@ -87,6 +87,6 @@ class Dependency extends vscode.TreeItem {
 		super(label, collapsibleState);
 		this.tooltip = `${this.label}-${this.version}`;
 		this.description = this.version;
-		this.iconPath = new vscode.ThemeIcon(icon);
+		this.iconPath = new vscode.ThemeIcon('rocket', new vscode.ThemeColor('testing.iconFailed'));
 	}
 }

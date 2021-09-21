@@ -12,8 +12,17 @@ import { icon } from '../const';
 export async function showQuickPick() {
 	let i = 0;
 	const result = await window.showQuickPick(
-		[`$(${icon}) uno`, '$(${icon}) dos', '$(${icon}) tres'], {
-		placeHolder: 'one, two, or three',
+		[
+			{ label: '$(star-full) Python 3.8.10  64-bit (‘base’: conda)', description: 'Recommended', detail: '~/opt/anaconda3/bin/python', alwaysShow: false },
+			{ label: 'Python 3.8.8  64-bit (‘playground’: conda)', detail: '~/opt/anaconda3/envs/playground/bin/python' },
+			{ label: 'Python 3.9.5 64-bit', detail: '/opt/homebrew/bin/python3' },
+			{ label: 'Python 3.8.2 64-bit', detail: '/usr/bin/python3' },
+			{ label: 'Python 2.7.16 64-bit', detail: '/usr/bin/python' },
+			{ label: 'Python 2.7 64-bit', detail: '/usr/bin/python2' },
+			{ label: '$(gear) Use default Python interpreter path', alwaysShow: false },
+			{ label: '$(add) Enter interpreter path...', alwaysShow: false },
+		], {
+			placeHolder: 'Select an interpreter',
 		onDidSelectItem: item => window.showInformationMessage(`Focus ${++i}: ${item}`)
 	});
 

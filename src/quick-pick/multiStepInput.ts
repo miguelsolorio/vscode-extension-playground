@@ -21,7 +21,13 @@ export async function multiStepInput(context: ExtensionContext) {
 
 	const createResourceGroupButton = new IconAction({ iconPath: new ThemeIcon('arrow-left') }, 'Create Resource Group');
 
-	const resourceGroups: QuickPickItem[] = ['$(rocket) vscode-data-function', '$(zap) vscode-appservice-microservices', '$(github) vscode-appservice-monitor', '$(code) vscode-appservice-preview', 'vscode-appservice-prod']
+	const resourceGroups: QuickPickItem[] = [
+		'$(rocket) vscode-data-function', 
+		'$(zap) vscode-appservice-microservices', 
+		'$(github) vscode-appservice-monitor', 
+		'$(code) vscode-appservice-preview', 
+		'vscode-appservice-prod'
+	]
 		.map(label => ({ label }));
 
 

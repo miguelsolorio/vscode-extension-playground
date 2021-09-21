@@ -7,7 +7,7 @@
 	"repository": "https://github.com/Microsoft/vscode-extension-samples/helloworld-sample",
 	"enableProposedApi": true,
 	"engines": {
-		"vscode": "^1.34.0"
+		"vscode": "^1.59.0"
 	},
 	"categories": [
 		"Other"
