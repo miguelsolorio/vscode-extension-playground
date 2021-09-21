@@ -73,7 +73,7 @@
             "default": true,
             "description": "This is the description for this setting"
           },
-          "foo.groupB.blah2": {
+          "foo.groupA.blah2": {
             "type": "boolean",
             "scope": "resource",
             "default": false,
